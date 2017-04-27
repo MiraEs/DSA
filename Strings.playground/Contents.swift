@@ -16,3 +16,19 @@ func lengthOfLastWord(_ s: String) -> Int {
 }
 
 lengthOfLastWord(" all a ")
+
+// HackerRank question: https://www.hackerrank.com/challenges/balanced-brackets
+
+//3 - sample input/output
+//{[()]} //YES
+//{[(])} //NO
+//{{[[(())]]}} //YES
+
+//is it balanced? -- best way to do this is use stack?
+
+
+func isBalanced(_ str: String) -> Bool {
+    var strArr = str.characters
+    returnf false
+}
+
