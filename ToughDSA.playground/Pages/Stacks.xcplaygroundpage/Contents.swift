@@ -43,7 +43,7 @@ func isBalanced(sequence: [Character]) -> Bool {
     return stack.isEmpty
 }
 
-isBalanced(sequence: ["{", ")"])
+isBalanced(sequence: ["]", "{", "}","["])
 
 
 //Write an algorithm that moves every element in an array of Ints one space to the left
@@ -59,5 +59,26 @@ func reorderArr(arr: [Int]) -> [Int] {
 }
 
 reorderArr(arr: [0,1,2,3,4,5])
+
+//Write an algorithm that moves every element in an array of Ints (x) spaces to the left
+//Sample input: [0,1,2,3,4,5], 3
+//Sample output: [3,4,5,0,1,2]
+
+func reorderArrN(arr: [Int], n: Int) -> [Int] {
+    var firstHalf = [Int]()
+    var secondHalf = [Int]()
+    
+    for i in 0..<arr.count {
+        if i < n {
+            firstHalf.append(arr[i])
+        } else {
+            secondHalf.append(arr[i])
+        }
+    }
+    
+    return secondHalf + firstHalf
+}
+
+reorderArrN(arr: [0,1,2,3,4,5], n: 3)
 
 //: [Next](@next)
