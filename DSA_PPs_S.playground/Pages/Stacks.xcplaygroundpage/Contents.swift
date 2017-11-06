@@ -81,4 +81,56 @@ func reorderArrN(arr: [Int], n: Int) -> [Int] {
 
 reorderArrN(arr: [0,1,2,3,4,5], n: 3)
 
+func isAnagram(_ string1: String, _ string2: String) -> Bool {
+    var strArr1 = Array(string1).sorted()
+    var strArr2 = Array(string2).sorted()
+    return strArr1 == strArr2
+}
+
+isAnagram("cheese", "eeeshcs")
+
+
+//
+
+struct Stack<T> {
+    fileprivate var array: [T] = []
+    
+    mutating func push(_ element: T) {
+        array.append(element)
+    }
+    
+    mutating func pop(_ element: T) {
+        guard !array.isEmpty else {
+            return
+        }
+        array.removeLast()
+    }
+    
+    mutating func peek() -> T? {
+        guard !array.isEmpty else {
+            return nil
+        }
+        
+        return array.last!
+    }
+}
+
+var thisStack = Stack<Int>()
+thisStack.push(1)
+thisStack.push(2)
+thisStack.push(3)
+thisStack.push(4)
+thisStack.peek()
+print(thisStack)
+
+
+
+
+
+
+
+
+
+
+
 //: [Next](@next)
