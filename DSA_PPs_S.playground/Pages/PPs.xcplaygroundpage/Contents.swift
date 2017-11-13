@@ -47,18 +47,54 @@ class ListNode {
     }
 }
 
-func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode {
+    var newHead = ListNode.init(0)
+    var current1 = l1
+    var current2 = l2
+    
+    while current1 != nil || current2 != nil {
+        
+        let sum = current1!.val + current2!.val
+        newHead = ListNode.init(sum)
+        
+        newHead.next = ListNode.init(0)
+        newHead = newHead.next!
+        current1 = current1?.next
+        current2 = current2?.next
+        
+    }
+    
+    //for the last node
+    
+    //if links aren't equal lengths
     
     
-    return nil
+    return newHead
 }
 
-var head = ListNode.init(1)
-head.next = ListNode.init(2)
-head.next?.next = ListNode.init(3)
+var head1 = ListNode.init(2)
+head1.next = ListNode.init(3)
+head1.next?.next = ListNode.init(4)
 
-print(head.next!.next!.val)
+var head2 = ListNode.init(1)
+head2.next = ListNode.init(1)
+head2.next?.next = ListNode.init(1)
 
+//print(head.next!.next!.val)
+
+let head3 = addTwoNumbers(head1, head2)
+//print(head3.next!.val)
+
+func printNodes(_ head: ListNode) {
+    var current = head
+    while current.next != nil {
+        print(current.val)
+        current = current.next!
+    }
+    print(current.val)
+}
+
+printNodes(head1)
 
 
 
