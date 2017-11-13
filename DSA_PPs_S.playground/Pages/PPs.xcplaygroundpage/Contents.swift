@@ -52,7 +52,10 @@ func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode {
     var current1 = l1
     var current2 = l2
     
-    while current1 != nil || current2 != nil {
+    while current1 != nil {
+        if current2 == nil {
+            current2 = ListNode.init(0)
+        }
         
         let sum = current1!.val + current2!.val
         newHead = ListNode.init(sum)
@@ -68,11 +71,34 @@ func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode {
     
     //if links aren't equal lengths
     
-    
     return newHead
 }
 
-var head1 = ListNode.init(2)
+func mergeBranches(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+    //let combinedFirst = ListNode.init(l1!.val + l2!.val)
+    var current1 = l1
+    var current2 = l2
+    
+    let rootMerged = current1
+    var mergeCurrent = rootMerged?.next
+    
+    while current1?.next != nil {
+        mergeCurrent = current1?.next
+        
+        mergeCurrent = mergeCurrent?.next
+        current1 = current1?.next
+    }
+    
+    while current2?.next != nil {
+        mergeCurrent = 
+    }
+    
+    
+    return rootMerged
+}
+
+//test
+var head1 = ListNode.init(8)
 head1.next = ListNode.init(3)
 head1.next?.next = ListNode.init(4)
 
@@ -82,8 +108,10 @@ head2.next?.next = ListNode.init(1)
 
 //print(head.next!.next!.val)
 
-let head3 = addTwoNumbers(head1, head2)
+//let head3 = addTwoNumbers(head1, head2)
 //print(head3.next!.val)
+
+//var mergedStuff = mergeBranches(head1, head2)
 
 func printNodes(_ head: ListNode) {
     var current = head
@@ -94,7 +122,7 @@ func printNodes(_ head: ListNode) {
     print(current.val)
 }
 
-printNodes(head1)
+printNodes(mergedStuff!)
 
 
 
